@@ -1,8 +1,13 @@
 package hello.hellospring.domain;
 
-public class Member {
+import javax.persistence.*;
 
+@Entity
+public class Member {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    //@Column(name = "username") 디비에 저장된 명이랑 매핑시켜줌
     private String name;
 
     public Long getId() {

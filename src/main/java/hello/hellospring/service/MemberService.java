@@ -4,11 +4,15 @@ import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.repository.MemoryMemberRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 //@Service
+// JPA를 사용하려면 항상 transaction 이 필요하다
+// JPA는 모든 변경이 트랜잭션 안에서 실행되어야 한다
+@Transactional
 public class MemberService {
     // 같은 인스턴트스 쓰도록
     private final MemberRepository memberRepository;
